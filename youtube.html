@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUCCA | YouTube</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 25px;
+      background: #101116;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+    }
+
+    h1 {
+      font-size: 27px;
+    }
+
+    h1 span {
+      color: #ff3030;
+    }
+
+    a {
+      color: #ff4545;
+      text-decoration: none;
+    }
+
+    .search {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: #202127;
+      color: white;
+      font-size: 15px;
+    }
+
+    button {
+      padding: 13px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ff3030;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .player {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 12px;
+      background: #000;
+    }
+
+    .message {
+      color: #aaa;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 15px;
+      }
+
+      .search {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>LUCCA <span>YouTube</span></h1>
+    <a href="index.html">← Volver al inicio</a>
+  </header>
+
+  <div class="search">
+    <input
+      id="videoUrl"
+      type="text"
+      placeholder="Pega el enlace de un video de YouTube..."
+    >
+    <button onclick="loadVideo()">Reproducir</button>
+  </div>
+
+  <div class="player">
+    <iframe
+      id="youtubePlayer"
+      src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE"
+      title="Reproductor de YouTube"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+
+    <p class="message">
+      Reproductor oficial de YouTube. Algunos videos pueden no permitir
+      su reproducción en páginas externas.
+    </p>
+  </div>
+
+  <script>
+    function loadVideo() {
+      const url = document.getElementById("videoUrl").value.trim();
+
+      let videoId = "";
+
+      try {
+        const parsed = new URL(url);
+
+        if (parsed.hostname === "youtu.be") {
+          videoId = parsed.pathname.slice(1);
+        } else if (
+          parsed.hostname === "youtube.com" ||
+          parsed.hostname === "www.youtube.com" ||
+          parsed.hostname === "m.youtube.com"
+        ) {
+          videoId = parsed.searchParams.get("v") || "";
+
+          if (parsed.pathname.startsWith("/embed/")) {
+            videoId = parsed.pathname.split("/")[2] || "";
+          }
+
+          if (parsed.pathname.startsWith("/shorts/")) {
+            videoId = parsed.pathname.split("/")[2] || "";
+          }
+        }
+      } catch (error) {
+        alert("Escribe un enlace válido de YouTube.");
+        return;
+      }
+
+      if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
+        alert("No se encontró un enlace de video válido.");
+        return;
+      }
+
+      document.getElementById("youtubePlayer").src =
+        "https://www.youtube-nocookie.com/embed/" + videoId;
+    }
+  </script>
+
+</body>
+</html>
