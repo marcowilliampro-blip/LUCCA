@@ -1,1 +1,214 @@
 
+/* =========================
+   LUCCA v1.0 - ESTILOS
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #101116;
+  color: #f5f5f7;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* BARRA SUPERIOR */
+
+.header {
+  width: 100%;
+  min-height: 72px;
+  padding: 0 7%;
+  background: #171820;
+  border-bottom: 1px solid #292a35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 27px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.nav a {
+  color: #b8b9c5;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #ffffff;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.container {
+  width: 86%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+/* BIENVENIDA */
+
+.welcome {
+  margin-top: 40px;
+  padding: 55px 40px;
+  background: linear-gradient(120deg, #202231, #171923);
+  border: 1px solid #303241;
+  border-radius: 16px;
+}
+
+.version {
+  display: inline-block;
+  background: #303b68;
+  color: #dce3ff;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-bottom: 18px;
+}
+
+.welcome h1 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.welcome p {
+  color: #a8aaba;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* SECCIONES */
+
+.section {
+  margin-top: 45px;
+}
+
+.section h2 {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #9c9eac;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* TARJETAS */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.card {
+  display: block;
+  padding: 25px;
+  min-height: 165px;
+  background: #191b25;
+  border: 1px solid #30313e;
+  border-radius: 13px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #7773ce;
+  background: #202231;
+}
+
+.card-icon {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin-bottom: 9px;
+}
+
+.card p {
+  color: #a3a5b3;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* PIE DE PAGINA */
+
+footer {
+  margin-top: 65px;
+  padding: 25px;
+  background: #171820;
+  border-top: 1px solid #292a35;
+  text-align: center;
+  color: #9294a2;
+  font-size: 12px;
+  line-height: 2;
+}
+
+/* ADAPTACION A CELULARES */
+
+@media (max-width: 700px) {
+  .header {
+    padding: 16px 5%;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .welcome {
+    padding: 35px 22px;
+  }
+
+  .welcome h1 {
+    font-size: 27px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
