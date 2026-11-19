@@ -345,9 +345,19 @@
 
   <script>
     const input = document.getElementById("addressInput");
+    const PROXY_URL = "https://lucca-proxy.onrender.com";
     const workspace = document.getElementById("workspace");
     const historyList = document.getElementById("historyList");
+async function testProxy() {
+  try {
+    const response = await fetch(`${PROXY_URL}/api/status`);
+    const data = await response.json();
 
+    console.log("LUCCA PROXY:", data);
+  } catch (error) {
+    console.error("Error conectando con LUCCA PROXY:", error);
+  }
+}
     let historyItems = [];
     let position = -1;
 
@@ -526,6 +536,7 @@
     }
 
     getHistory();
+    testProxy();
   </script>
 
 </body>
