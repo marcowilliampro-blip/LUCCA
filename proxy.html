@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,756 +5,376 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="LUCCA Browser">
 <title>LUCCA Browser</title>
-
 <style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: #101116;
-  color: #f5f5f7;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  height: 65px;
-  padding: 0 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #171820;
-  border-bottom: 1px solid #292a35;
-}
-
-.logo {
-  color: white;
-  font-size: 23px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.logo span { color: #818cf8; }
-
-.home {
-  color: #b5b8c9;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.browser {
-  max-width: 1250px;
-  margin: 25px auto;
-  padding: 0 20px;
-}
-
-.toolbar {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 15px;
-}
-
-.tool-button {
-  width: 43px;
-  min-width: 43px;
-  border: 1px solid #30313d;
-  border-radius: 9px;
-  background: #20212b;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.address {
-  display: flex;
-  flex: 1;
-  min-width: 0;
-  gap: 8px;
-  padding: 5px;
-  background: #20212b;
-  border: 1px solid #30313d;
-  border-radius: 10px;
-}
-
-input {
-  width: 100%;
-  min-width: 0;
-  padding: 10px;
-  color: white;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 14px;
-}
-
-.go {
-  padding: 0 18px;
-  background: #6366f1;
-  color: white;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.section-title {
-  color: #aaaec0;
-  font-size: 13px;
-  margin: 25px 0 12px;
-}
-
-.shortcuts {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.shortcut {
-  padding: 17px 10px;
-  text-align: center;
-  background: #1b1c26;
-  border: 1px solid #30313d;
-  border-radius: 12px;
-  color: white;
-  text-decoration: none;
-  transition: .2s;
-}
-button.shortcut {
-  width: 100%;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-}
-.shortcut:hover {
-  background: #292b3a;
-  transform: translateY(-2px);
-}
-
-.emoji {
-  display: block;
-  font-size: 25px;
-  margin-bottom: 9px;
-}
-
-.shortcut small { color: #aeb0c0; }
-
-.workspace {
-  margin-top: 25px;
-  min-height: 330px;
-  padding: 25px;
-  background: #191a23;
-  border: 1px solid #30313d;
-  border-radius: 13px;
-}
-
-.welcome {
-  text-align: center;
-  padding: 45px 10px;
-}
-
-.welcome h1 { font-size: 27px; }
-
-.welcome p, .notice {
-  color: #aeb0c0;
-  line-height: 1.6;
-}
-
-.notice { font-size: 13px; }
-
-.page-title {
-  overflow-wrap: anywhere;
-  color: #a5b4fc;
-}
-
-.page-content {
-  line-height: 1.8;
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-}
-
-.page-links {
-  display: grid;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.page-links a {
-  color: #aeb8ff;
-  overflow-wrap: anywhere;
-}
-
-.status {
-  color: #aeb0c0;
-  font-size: 12px;
-  margin: 10px 0;
-}
-
-.video {
-  width: 100%;
-  max-width: 850px;
-  margin: 15px auto;
-}
-
-.video iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: 10px;
-  background: black;
-}
-
-.history {
-  margin-top: 22px;
-  padding: 15px;
-  background: #1b1c26;
-  border: 1px solid #30313d;
-  border-radius: 10px;
-}
-
-.history h3 {
-  margin-top: 0;
-  font-size: 15px;
-}
-
-.history-list {
-  display: grid;
-  gap: 8px;
-}
-
-.history-list a {
-  color: #aeb8ff;
-  font-size: 13px;
-  overflow-wrap: anywhere;
-}
-
-.clear {
-  margin-top: 12px;
-  padding: 8px 12px;
-  border: 1px solid #424353;
-  border-radius: 7px;
-  background: #292a35;
-  color: white;
-  cursor: pointer;
-}
-
-footer {
-  padding: 25px;
-  text-align: center;
-  color: #777b8c;
-  font-size: 12px;
-}
-
-@media (max-width: 600px) {
-  header { padding: 0 15px; }
-  .browser { padding: 0 12px; }
-  .toolbar { flex-wrap: wrap; }
-  .address {
-    order: 1;
-    flex-basis: 100%;
-  }
-  .shortcuts { grid-template-columns: repeat(2, 1fr); }
-  .workspace { padding: 15px; }
-}
+*{box-sizing:border-box}
+body{margin:0;background:#101116;color:#f5f5f7;font-family:Arial,sans-serif}
+header{height:65px;padding:0 25px;display:flex;align-items:center;justify-content:space-between;background:#171820;border-bottom:1px solid #292a35}
+.logo{color:white;font-size:23px;font-weight:bold;text-decoration:none}.logo span{color:#818cf8}
+.home{color:#b5b8c9;text-decoration:none;font-size:14px}
+.browser{max-width:1250px;margin:25px auto;padding:0 20px}
+.tabs-bar{display:flex;align-items:center;gap:7px;overflow-x:auto;margin-bottom:10px;padding:5px;background:#171820;border:1px solid #30313d;border-radius:10px}
+.tab{display:flex;align-items:center;gap:10px;min-width:110px;max-width:210px;padding:9px 12px;border:1px solid #30313d;border-radius:8px;background:#20212b;color:#dfe1ee;cursor:pointer;white-space:nowrap}
+.tab.active{background:#343653;border-color:#6366f1;color:white}.tab-name{overflow:hidden;text-overflow:ellipsis;flex:1}.tab-close{border:0;background:transparent;color:#bbb;cursor:pointer;font-size:16px}
+.new-tab,.tool-button{width:40px;min-width:40px;height:38px;border:1px solid #30313d;border-radius:9px;background:#20212b;color:white;font-size:18px;cursor:pointer}
+.toolbar{display:flex;gap:8px;margin-bottom:15px}
+.address{display:flex;flex:1;min-width:0;gap:8px;padding:5px;background:#20212b;border:1px solid #30313d;border-radius:10px}
+input{width:100%;min-width:0;padding:10px;color:white;background:transparent;border:none;outline:none;font-size:14px}
+.go{padding:0 18px;background:#6366f1;color:white;border:0;border-radius:7px;cursor:pointer}
+.section-title{color:#aaaec0;font-size:13px;margin:25px 0 12px}
+.shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.shortcut{padding:17px 10px;text-align:center;background:#1b1c26;border:1px solid #30313d;border-radius:12px;color:white;text-decoration:none;transition:.2s;cursor:pointer;font-family:Arial,sans-serif;font-size:14px}
+.shortcut:hover{background:#292b3a;transform:translateY(-2px)}
+.emoji{display:block;font-size:25px;margin-bottom:9px}.shortcut small{color:#aeb0c0}
+.workspace{margin-top:25px;min-height:330px;padding:25px;background:#191a23;border:1px solid #30313d;border-radius:13px}
+.welcome{text-align:center;padding:35px 10px}.welcome h1{font-size:27px}
+.welcome p,.notice{color:#aeb0c0;line-height:1.6}.notice{font-size:13px}
+.page-title{overflow-wrap:anywhere;color:#a5b4fc}.page-content{line-height:1.8;overflow-wrap:anywhere;white-space:pre-wrap}
+.page-links{display:grid;gap:10px;margin-top:20px}.page-links a,.workspace a{color:#aeb8ff;overflow-wrap:anywhere}
+.status{color:#aeb0c0;font-size:12px;margin:10px 0}
+.video{width:100%;max-width:850px;margin:15px auto}.video iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:10px;background:black}
+.panel{max-width:850px;margin:0 auto;padding:20px;background:#1b1c26;border:1px solid #30313d;border-radius:12px}
+.panel h2{color:#a5b4fc;margin-top:0}.panel-row{display:flex;gap:8px;margin:14px 0}.panel-row input{background:#20212b;border:1px solid #424353;border-radius:8px}
+.download-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #30313d;overflow-wrap:anywhere}
+.download-item:last-child{border-bottom:0}.download-actions{display:flex;gap:7px;flex-shrink:0}
+.small-button{padding:7px 10px;border:1px solid #424353;border-radius:7px;background:#292a35;color:white;cursor:pointer}
+.history{margin-top:22px;padding:15px;background:#1b1c26;border:1px solid #30313d;border-radius:10px}
+.history h3{margin-top:0;font-size:15px}.history-list{display:grid;gap:8px}.history-list button{color:#aeb8ff;background:none;border:0;text-align:left;cursor:pointer;overflow-wrap:anywhere}
+.clear{margin-top:12px;padding:8px 12px;border:1px solid #424353;border-radius:7px;background:#292a35;color:white;cursor:pointer}
+footer{padding:25px;text-align:center;color:#777b8c;font-size:12px}
+@media(max-width:600px){header{padding:0 15px}.browser{padding:0 12px}.toolbar{flex-wrap:wrap}.address{order:1;flex-basis:100%}.shortcuts{grid-template-columns:repeat(2,1fr)}.workspace{padding:15px}.panel-row{flex-direction:column}.download-item{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <a href="index.html" class="logo">LUCCA <span>Browser</span></a>
-  <a href="index.html" class="home">← Inicio</a>
+  <a href="#" class="logo" id="logoHome">LUCCA <span>Browser</span></a>
+  <a href="#" class="home" id="homeLink">← Inicio</a>
 </header>
-
 <main class="browser">
-
+  <div class="tabs-bar" id="tabsBar" aria-label="Pestañas de LUCCA"></div>
   <div class="toolbar">
-    <button class="tool-button" id="backButton" title="Atrás">←</button>
-    <button class="tool-button" id="forwardButton" title="Adelante">→</button>
-    <button class="tool-button" id="refreshButton" title="Actualizar">↻</button>
-    <button class="tool-button" id="homeButton" title="Inicio">⌂</button>
-
+    <button class="tool-button" id="backButton" title="Atrás" type="button">←</button>
+    <button class="tool-button" id="forwardButton" title="Adelante" type="button">→</button>
+    <button class="tool-button" id="refreshButton" title="Actualizar" type="button">↻</button>
+    <button class="tool-button" id="homeButton" title="Inicio" type="button">⌂</button>
     <form class="address" id="addressForm">
-      <input
-        id="addressInput"
-        type="text"
-        placeholder="Buscar o escribir una dirección web..."
-        autocomplete="off"
-      >
+      <input id="addressInput" type="text" placeholder="Buscar o escribir una dirección web..." autocomplete="off">
       <button class="go" type="submit">Ir</button>
     </form>
   </div>
 
   <p class="section-title">ACCESOS RÁPIDOS</p>
-<button class="shortcut" id="youtubeSectionButton" type="button">
-  <span class="emoji">▶️</span>
-  YouTube LUCCA
-  <br><small>Buscar y reproducir videos</small>
-</button>
   <div class="shortcuts">
-    <a class="shortcut" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-      <span class="emoji">▶️</span>YouTube<br><small>Videos</small>
-    </a>
-
-    <a class="shortcut" href="https://www.google.com" target="_blank" rel="noopener noreferrer">
-      <span class="emoji">🔎</span>Google<br><small>Buscar</small>
-    </a>
-
-    <a class="shortcut" href="https://www.spotify.com" target="_blank" rel="noopener noreferrer">
-      <span class="emoji">🎵</span>Spotify<br><small>Música</small>
-    </a>
-
-    <a class="shortcut" href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-      <span class="emoji">🎬</span>TikTok<br><small>Videos</small>
-    </a>
-
-    <a class="shortcut" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-      <span class="emoji">📷</span>Instagram<br><small>Red social</small>
-    </a>
-
-    <a class="shortcut" href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">
-      <span class="emoji">🤖</span>ChatGPT<br><small>Asistente</small>
-    </a>
+    <button class="shortcut" id="youtubeSectionButton" type="button"><span class="emoji">▶️</span>YouTube LUCCA<br><small>Reproducir videos</small></button>
+    <button class="shortcut" data-url="https://www.youtube.com" type="button"><span class="emoji">▶️</span>YouTube<br><small>Videos</small></button>
+    <button class="shortcut" data-url="https://www.google.com" type="button"><span class="emoji">🔎</span>Google<br><small>Buscar</small></button>
+    <button class="shortcut" data-url="https://www.spotify.com" type="button"><span class="emoji">🎵</span>Spotify<br><small>Música</small></button>
+    <button class="shortcut" data-url="https://www.tiktok.com" type="button"><span class="emoji">🎬</span>TikTok<br><small>Videos</small></button>
+    <button class="shortcut" data-url="https://www.instagram.com" type="button"><span class="emoji">📷</span>Instagram<br><small>Red social</small></button>
+    <button class="shortcut" data-url="https://chatgpt.com" type="button"><span class="emoji">🤖</span>ChatGPT<br><small>Asistente</small></button>
+    <button class="shortcut" id="downloadsButton" type="button"><span class="emoji">📥</span>Descargas LUCCA<br><small>Gestor de enlaces</small></button>
   </div>
 
   <section class="workspace" id="workspace">
     <div class="welcome">
       <h1>Bienvenido a LUCCA Browser</h1>
       <p>Busca en Internet o escribe una dirección web.</p>
-      <p class="notice">
-        Las páginas compatibles se mostrarán dentro de LUCCA.
-        Otras páginas se abrirán externamente.
-      </p>
+      <p class="notice">Las páginas compatibles se mostrarán dentro del espacio de LUCCA. Algunas páginas pueden bloquear la vista integrada.</p>
     </div>
   </section>
-
   <section class="history">
     <h3>Historial reciente</h3>
-    <div class="history-list" id="historyList">
-      <p class="notice">Todavía no has realizado búsquedas.</p>
-    </div>
-    <button class="clear" id="clearButton">Borrar historial</button>
+    <div class="history-list" id="historyList"><p class="notice">Todavía no has realizado búsquedas.</p></div>
+    <button class="clear" id="clearButton" type="button">Borrar historial</button>
   </section>
-
 </main>
-
-<footer>LUCCA Browser · Versión 2.0</footer>
+<footer>LUCCA Browser · Versión 2.1</footer>
 
 <script>
 const PROXY_URL = "https://lucca-proxy.onrender.com";
-
 const input = document.getElementById("addressInput");
 const workspace = document.getElementById("workspace");
 const historyList = document.getElementById("historyList");
+const tabsBar = document.getElementById("tabsBar");
 
 let historyItems = [];
-let position = -1;
-let currentUrl = "";
+let tabs = [];
+let activeTabId = null;
+let nextTabId = 1;
 
-function showMessage(title, message) {
+function activeTab(){ return tabs.find(tab => tab.id === activeTabId); }
+
+function createTab(makeActive = true){
+  const tab = {id:nextTabId++, title:"Nueva pestaña", url:"", history:[], position:-1};
+  tabs.push(tab);
+  if(makeActive){activeTabId=tab.id;showHome();}
+  renderTabs();
+}
+
+function renderTabs(){
+  tabsBar.replaceChildren();
+  tabs.forEach(tab=>{
+    const button=document.createElement("button");
+    button.type="button";
+    button.className="tab"+(tab.id===activeTabId?" active":"");
+    const name=document.createElement("span");
+    name.className="tab-name";
+    name.textContent=tab.title;
+    button.appendChild(name);
+    button.addEventListener("click",()=>switchTab(tab.id));
+    const close=document.createElement("span");
+    close.className="tab-close";
+    close.textContent="×";
+    close.title="Cerrar pestaña";
+    close.addEventListener("click",event=>{event.stopPropagation();closeTab(tab.id);});
+    button.appendChild(close);
+    tabsBar.appendChild(button);
+  });
+  const add=document.createElement("button");
+  add.type="button";add.className="new-tab";add.textContent="+";add.title="Nueva pestaña";
+  add.addEventListener("click",()=>createTab(true));
+  tabsBar.appendChild(add);
+}
+
+function switchTab(id){
+  activeTabId=id;
+  const tab=activeTab();
+  renderTabs();
+  if(!tab)return;
+  input.value=tab.url||"";
+  if(tab.internal==="downloads"){showDownloads(false);return;}
+  if(tab.internal==="youtube"){showYouTubePanel(false);return;}
+  if(tab.url) navigate(tab.url,false,true);
+  else showHome();
+}
+
+function closeTab(id){
+  if(tabs.length===1){showHome();const tab=activeTab();tab.url="";tab.title="Nueva pestaña";tab.history=[];tab.position=-1;renderTabs();return;}
+  const index=tabs.findIndex(tab=>tab.id===id);
+  tabs=tabs.filter(tab=>tab.id!==id);
+  if(activeTabId===id){const replacement=tabs[Math.max(0,index-1)];activeTabId=replacement.id;switchTab(replacement.id);}
+  else renderTabs();
+}
+
+function setTabTitle(title){
+  const tab=activeTab();if(!tab)return;
+  tab.title=(title||"LUCCA").slice(0,24);
+  renderTabs();
+}
+
+function showMessage(title,message){
   workspace.replaceChildren();
-
-  const container = document.createElement("div");
-  container.className = "welcome";
-
-  const heading = document.createElement("h2");
-  heading.textContent = title;
-
-  const paragraph = document.createElement("p");
-  paragraph.className = "notice";
-  paragraph.textContent = message;
-
-  container.append(heading, paragraph);
-  workspace.appendChild(container);
+  const container=document.createElement("div");container.className="welcome";
+  const heading=document.createElement("h2");heading.textContent=title;
+  const paragraph=document.createElement("p");paragraph.className="notice";paragraph.textContent=message;
+  container.append(heading,paragraph);workspace.appendChild(container);
 }
 
-function getHistory() {
-  try {
-    historyItems = JSON.parse(
-      localStorage.getItem("luccaHistory") || "[]"
-    );
-
-    if (!Array.isArray(historyItems)) historyItems = [];
-  } catch {
-    historyItems = [];
-  }
-
+function getHistory(){
+  try{historyItems=JSON.parse(localStorage.getItem("luccaHistory")||"[]");if(!Array.isArray(historyItems))historyItems=[];}
+  catch{historyItems=[];}
   renderHistory();
 }
-
-function saveHistory(url) {
-  historyItems = [
-    url,
-    ...historyItems.filter(item => item !== url)
-  ].slice(0, 10);
-
-  localStorage.setItem(
-    "luccaHistory",
-    JSON.stringify(historyItems)
-  );
-
-  renderHistory();
+function saveHistory(url){
+  historyItems=[url,...historyItems.filter(item=>item!==url)].slice(0,10);
+  localStorage.setItem("luccaHistory",JSON.stringify(historyItems));renderHistory();
 }
-
-function renderHistory() {
+function renderHistory(){
   historyList.replaceChildren();
-
-  if (!historyItems.length) {
-    const message = document.createElement("p");
-    message.className = "notice";
-    message.textContent = "Todavía no has realizado búsquedas.";
-    historyList.appendChild(message);
-    return;
-  }
-
-  historyItems.forEach(url => {
-    const link = document.createElement("a");
-    link.href = "#";
-    link.textContent = url;
-
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      navigate(url);
-    });
-
-    historyList.appendChild(link);
+  if(!historyItems.length){const p=document.createElement("p");p.className="notice";p.textContent="Todavía no has realizado búsquedas.";historyList.appendChild(p);return;}
+  historyItems.forEach(url=>{
+    const button=document.createElement("button");button.type="button";button.textContent=url;
+    button.addEventListener("click",()=>navigate(url));historyList.appendChild(button);
   });
 }
+function clearHistory(){historyItems=[];localStorage.removeItem("luccaHistory");renderHistory();}
 
-function clearHistory() {
-  historyItems = [];
-  localStorage.removeItem("luccaHistory");
-  renderHistory();
+function showHome(){
+  const tab=activeTab();if(tab){tab.url="";tab.internal="home";tab.title="Nueva pestaña";tab.position=-1;}
+  input.value="";renderTabs();
+  workspace.innerHTML=`<div class="welcome"><h1>Bienvenido a LUCCA Browser</h1><p>Busca en Internet o escribe una dirección web.</p><p class="notice">Las páginas compatibles se mostrarán dentro del espacio de LUCCA. Algunas páginas pueden bloquear la vista integrada.</p></div>`;
 }
 
-function showHome() {
-  currentUrl = "";
-  position = -1;
-
-  workspace.innerHTML = `
-    <div class="welcome">
-      <h1>Bienvenido a LUCCA Browser</h1>
-      <p>Busca en Internet o escribe una dirección web.</p>
-      <p class="notice">
-        Las páginas compatibles se mostrarán dentro de LUCCA.
-      </p>
-    </div>
-  `;
-}
-
-function extractYouTubeId(url) {
-  const host = url.hostname.toLowerCase();
-
-  if (host === "youtu.be") {
-    return url.pathname.slice(1).split("/")[0];
+function extractYouTubeId(url){
+  const host=url.hostname.toLowerCase();
+  if(host==="youtu.be")return url.pathname.slice(1).split("/")[0];
+  if(["youtube.com","www.youtube.com","m.youtube.com"].includes(host)){
+    if(url.pathname.startsWith("/shorts/"))return url.pathname.split("/")[2]||"";
+    if(url.pathname.startsWith("/embed/"))return url.pathname.split("/")[2]||"";
+    return url.searchParams.get("v")||"";
   }
-
-  if (
-    host === "youtube.com" ||
-    host === "www.youtube.com" ||
-    host === "m.youtube.com"
-  ) {
-    if (url.pathname.startsWith("/shorts/")) {
-      return url.pathname.split("/")[2] || "";
-    }
-
-    if (url.pathname.startsWith("/embed/")) {
-      return url.pathname.split("/")[2] || "";
-    }
-
-    return url.searchParams.get("v") || "";
-  }
-
   return "";
 }
 
-function showYouTube(url, videoId) {
+function showYouTube(url,videoId){
   workspace.replaceChildren();
-
-  const heading = document.createElement("h2");
-  heading.textContent = "Reproductor de YouTube";
-
-  const container = document.createElement("div");
-  container.className = "video";
-
-  const frame = document.createElement("iframe");
-  frame.src = "https://www.youtube-nocookie.com/embed/" +
-    encodeURIComponent(videoId);
-  frame.title = "Reproductor de YouTube";
-  frame.allow =
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-  frame.allowFullscreen = true;
-
+  const heading=document.createElement("h2");heading.textContent="YouTube LUCCA";
+  const container=document.createElement("div");container.className="video";
+  const frame=document.createElement("iframe");
+  frame.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(videoId);
+  frame.title="Reproductor de YouTube";
+  frame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  frame.allowFullscreen=true;
   container.appendChild(frame);
-
-  const note = document.createElement("p");
-  note.className = "notice";
-  note.textContent =
-    "Algunos videos no permiten reproducción insertada.";
-
-  const link = document.createElement("a");
-  link.href = url.href;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.textContent = "Abrir en YouTube";
-
-  note.appendChild(document.createTextNode(" "));
-  note.appendChild(link);
-
-  workspace.append(heading, container, note);
+  const note=document.createElement("p");note.className="notice";note.textContent="Si el video no permite reproducción insertada, tendrás que verlo en YouTube.";
+  workspace.append(heading,container,note);
 }
 
-function showFetchedPage(data) {
-  // El HTML remoto solo se analiza para extraer texto y enlaces.
-  // Nunca se inserta directamente en el documento de LUCCA.
-
-  const parser = new DOMParser();
-  const documentPage = parser.parseFromString(
-    data.html,
-    "text/html"
-  );
-
-  const title = documentPage.title || data.originalUrl;
-
-  const heading = document.createElement("h2");
-  heading.className = "page-title";
-  heading.textContent = title;
-
-  const paragraph = document.createElement("p");
-  paragraph.className = "page-content";
-
-  const bodyText = documentPage.body
-    ? documentPage.body.textContent
-    : "";
-
-  paragraph.textContent = bodyText
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 12000) || "La página no contiene texto visible.";
-
-  const linksTitle = document.createElement("h3");
-  linksTitle.textContent = "Enlaces de esta página";
-
-  const linksContainer = document.createElement("div");
-  linksContainer.className = "page-links";
-
-  const original = new URL(data.originalUrl);
-  let count = 0;
-
-  documentPage.querySelectorAll("a[href]").forEach(item => {
-    if (count >= 20) return;
-
-    try {
-      const destination = new URL(
-        item.getAttribute("href"),
-        original
-      );
-
-      if (!["http:", "https:"].includes(destination.protocol)) {
-        return;
-      }
-
-      const link = document.createElement("a");
-      link.href = destination.href;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent =
-        (item.textContent.trim() || destination.hostname) +
-        " — " + destination.hostname;
-
-      linksContainer.appendChild(link);
-      count++;
-    } catch {
-      // Ignorar enlaces no válidos.
-    }
+function showFetchedPage(data){
+  const parser=new DOMParser();
+  const documentPage=parser.parseFromString(data.html,"text/html");
+  const heading=document.createElement("h2");heading.className="page-title";heading.textContent=documentPage.title||data.originalUrl;
+  const paragraph=document.createElement("p");paragraph.className="page-content";
+  const bodyText=documentPage.body?documentPage.body.textContent:"";
+  paragraph.textContent=bodyText.replace(/\s+/g," ").trim().slice(0,12000)||"La página no contiene texto visible.";
+  const linksTitle=document.createElement("h3");linksTitle.textContent="Enlaces de esta página";
+  const linksContainer=document.createElement("div");linksContainer.className="page-links";
+  const original=new URL(data.originalUrl);let count=0;
+  documentPage.querySelectorAll("a[href]").forEach(item=>{
+    if(count>=20)return;
+    try{
+      const destination=new URL(item.getAttribute("href"),original);
+      if(!["http:","https:"].includes(destination.protocol))return;
+      const link=document.createElement("button");link.type="button";link.className="small-button";
+      link.textContent=(item.textContent.trim()||destination.hostname)+" — "+destination.hostname;
+      link.addEventListener("click",()=>navigate(destination.href));
+      linksContainer.appendChild(link);count++;
+    }catch{}
   });
-
-  const note = document.createElement("p");
-  note.className = "notice";
-  note.textContent =
-    "Vista de lectura de LUCCA. Los scripts y estilos originales no se ejecutan.";
-
-  workspace.replaceChildren(
-    heading,
-    paragraph,
-    linksTitle,
-    linksContainer,
-    note
-  );
-
-  if (count === 0) {
-    linksTitle.textContent = "No se encontraron enlaces.";
-  }
+  const note=document.createElement("p");note.className="notice";note.textContent="Vista de lectura de LUCCA: los scripts y estilos originales de la página no se ejecutan.";
+  workspace.replaceChildren(heading,paragraph,linksTitle,linksContainer,note);
+  if(count===0)linksTitle.textContent="No se encontraron enlaces.";
 }
 
-async function navigate(value, addToHistory = true) {
-  value = value.trim();
-
-  if (!value) return;
-
-  let url;
-
-  if (value.includes(" ") || !value.includes(".")) {
-    url = new URL(
-      "https://www.google.com/search?q=" +
-      encodeURIComponent(value)
-    );
-
-    window.open(url.href, "_blank", "noopener,noreferrer");
-    saveHistory(url.href);
-    return;
-  }
-
-  try {
-    url = new URL(
-      /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(value)
-        ? value
-        : "https://" + value
-    );
-
-    if (!["http:", "https:"].includes(url.protocol)) {
-      throw new Error("Solo se permiten direcciones HTTP o HTTPS.");
-    }
-  } catch {
-    showMessage("Dirección no válida", "Comprueba la dirección e inténtalo otra vez.");
-    return;
-  }
-
-  const videoId = extractYouTubeId(url);
-
-  if (/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
-    currentUrl = url.href;
-    showYouTube(url, videoId);
-    finishNavigation(url.href, addToHistory);
-    return;
-  }
-
-  input.value = url.href;
-  currentUrl = url.href;
-
-  showMessage(
-    "Cargando página...",
-    "LUCCA está consultando el servidor."
-  );
-
-  try {
-    const response = await fetch(
-      `${PROXY_URL}/api/fetch?url=${encodeURIComponent(url.href)}`
-    );
-
-    const data = await response.json();
-
-    if (!response.ok || !data.success) {
-      throw new Error(
-        data.message || data.error || "No se pudo cargar la página."
-      );
-    }
-
-    showFetchedPage(data);
-    finishNavigation(url.href, addToHistory);
-
-  } catch (error) {
-    showMessage(
-      "No se pudo mostrar esta página",
-      error.message +
-      " Esta dirección puede no estar autorizada o no ser compatible con LUCCA."
-    );
-  }
-}
-
-function finishNavigation(url, addToHistory) {
-  if (addToHistory) {
-    historyItems = historyItems.slice(0, position + 1);
-    historyItems.push(url);
-    position = historyItems.length - 1;
+function finishNavigation(url,addToHistory){
+  const tab=activeTab();if(!tab)return;
+  tab.url=url;tab.internal="";
+  if(addToHistory){
+    tab.history=tab.history.slice(0,tab.position+1);
+    tab.history.push(url);tab.position=tab.history.length-1;
     saveHistory(url);
   }
+  renderTabs();
 }
 
-function goBack() {
-  if (position > 0) {
-    position--;
-    navigate(historyItems[position], false);
-  } else {
-    showHome();
+async function navigate(value,addToHistory=true,fromTabSwitch=false){
+  value=value.trim();if(!value)return;
+  let url;
+  if(value.includes(" ")||!value.includes(".")){
+    // La búsqueda se mantiene en LUCCA; no se abre otra pestaña de Chrome.
+    showSearchInfo(value);
+    const searchUrl="https://www.google.com/search?q="+encodeURIComponent(value);
+    finishNavigation(searchUrl,addToHistory);
+    return;
+  }
+  try{
+    url=new URL(/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(value)?value:"https://"+value);
+    if(!["http:","https:"].includes(url.protocol))throw new Error("Solo se permiten direcciones HTTP o HTTPS.");
+  }catch{showMessage("Dirección no válida","Comprueba la dirección e inténtalo otra vez.");return;}
+  input.value=url.href;
+  if(url.hostname==="www.google.com" && url.pathname==="/search"){
+    const query=url.searchParams.get("q")||"";
+    showSearchInfo(query);finishNavigation(url.href,addToHistory);setTabTitle("Búsqueda");return;
+  }
+  const tab=activeTab();if(tab){tab.url=url.href;tab.internal="";tab.title=url.hostname;renderTabs();}
+  const videoId=extractYouTubeId(url);
+  if(/^[a-zA-Z0-9_-]{11}$/.test(videoId)){
+    showYouTube(url,videoId);setTabTitle("YouTube");finishNavigation(url.href,addToHistory);return;
+  }
+  showMessage("Cargando página...","LUCCA está consultando el servidor.");
+  try{
+    const response=await fetch(`${PROXY_URL}/api/fetch?url=${encodeURIComponent(url.href)}`);
+    const data=await response.json();
+    if(!response.ok||!data.success)throw new Error(data.message||data.error||"No se pudo cargar la página.");
+    showFetchedPage(data);setTabTitle(data.originalUrl?new URL(data.originalUrl).hostname:"Página");
+    finishNavigation(url.href,addToHistory);
+  }catch(error){
+    showMessage("No se pudo mostrar esta página",error.message+" Esta dirección puede no estar autorizada o no ser compatible con LUCCA.");
+    setTabTitle(url.hostname);
+    if(!fromTabSwitch)finishNavigation(url.href,addToHistory);
   }
 }
 
-function goForward() {
-  if (position < historyItems.length - 1) {
-    position++;
-    navigate(historyItems[position], false);
-  }
+function showSearchInfo(query){
+  workspace.replaceChildren();
+  const panel=document.createElement("div");panel.className="welcome";
+  const h=document.createElement("h2");h.textContent="Búsqueda en LUCCA";
+  const p=document.createElement("p");p.textContent='Buscaste: "'+query+'"';
+  const note=document.createElement("p");note.className="notice";note.textContent="Para mostrar resultados reales de Google dentro de LUCCA necesitamos conectar un servicio de búsqueda. Por ahora no abrimos otra pestaña del navegador.";
+  panel.append(h,p,note);workspace.appendChild(panel);
 }
 
-document.getElementById("addressForm").addEventListener(
-  "submit",
-  event => {
-    event.preventDefault();
-    navigate(input.value);
-  }
-);
-
-document.getElementById("backButton").addEventListener("click", goBack);
-document.getElementById("forwardButton").addEventListener("click", goForward);
-document.getElementById("refreshButton").addEventListener("click", () => {
-  if (currentUrl) navigate(currentUrl, false);
-});
-document.getElementById("homeButton").addEventListener("click", showHome);
-document.getElementById("clearButton").addEventListener("click", clearHistory);
-document.getElementById("youtubeSectionButton").addEventListener("click", () => {
-  workspace.innerHTML = `
-    <div class="welcome">
-      <h1>▶️ YouTube LUCCA</h1>
-      <p>Busca y reproduce videos dentro de LUCCA.</p>
-      <p class="notice">
-        Próximamente: buscador de videos y resultados.
-      </p>
-      <input
-        id="youtubeSearch"
-        type="text"
-        placeholder="¿Qué video quieres buscar?"
-      >
-      <button class="go" id="youtubeSearchButton" type="button">
-        Buscar
-      </button>
-    </div>
-  `;
-
-  document.getElementById("youtubeSearchButton").addEventListener("click", () => {
-    const query = document.getElementById("youtubeSearch").value.trim();
-
-    if (!query) return;
-
-   const videoId = query.match(
-  /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/
-);
-
-if (!videoId) {
-  alert("Pega un enlace válido de un video de YouTube.");
-  return;
+function goBack(){
+  const tab=activeTab();if(!tab||tab.position<=0){showHome();return;}
+  tab.position--;navigate(tab.history[tab.position],false,true);
 }
+function goForward(){
+  const tab=activeTab();if(!tab||tab.position>=tab.history.length-1)return;
+  tab.position++;navigate(tab.history[tab.position],false,true);
+}
+function refreshPage(){const tab=activeTab();if(tab&&tab.url)navigate(tab.url,false,true);}
 
-workspace.innerHTML = `
-  <div class="welcome">
-    <h1>▶️ YouTube LUCCA</h1>
-    <iframe
-      width="100%"
-      height="400"
-      src="https://www.youtube-nocookie.com/embed/${videoId[1]}"
-      title="Reproductor de YouTube"
-      allowfullscreen
-      style="border:0; border-radius:12px;"
-    ></iframe>
-  </div>
-`;
+function showYouTubePanel(updateTab=true){
+  const tab=activeTab();if(tab){tab.internal="youtube";tab.title="YouTube";renderTabs();}
+  workspace.innerHTML=`<div class="panel"><h2>▶️ YouTube LUCCA</h2><p class="notice">Pega el enlace de un video de YouTube para reproducirlo aquí. La búsqueda por palabras requiere conectar la API oficial de YouTube.</p><div class="panel-row"><input id="youtubeSearch" type="text" placeholder="Pega el enlace de un video de YouTube"><button class="go" id="youtubeSearchButton" type="button">Reproducir</button></div></div>`;
+  document.getElementById("youtubeSearchButton").addEventListener("click",()=>{
+    const value=document.getElementById("youtubeSearch").value.trim();
+    try{
+      const url=new URL(value);
+      const id=extractYouTubeId(url);
+      if(!/^[a-zA-Z0-9_-]{11}$/.test(id))throw new Error();
+      const tab=activeTab();if(tab){tab.url=url.href;tab.title="YouTube";} 
+      showYouTube(url,id);finishNavigation(url.href,true);
+    }catch{showMessage("Enlace no válido","Pega un enlace completo de un video de YouTube.");}
   });
-});
+  if(updateTab)setTabTitle("YouTube");
+}
+
+function getDownloads(){
+  try{const items=JSON.parse(localStorage.getItem("luccaDownloadLinks")||"[]");return Array.isArray(items)?items:[];}
+  catch{return [];}
+}
+function saveDownloads(items){localStorage.setItem("luccaDownloadLinks",JSON.stringify(items.slice(0,30)));}
+function showDownloads(updateTab=true){
+  const tab=activeTab();if(tab){tab.internal="downloads";tab.title="Descargas";renderTabs();}
+  workspace.innerHTML=`<div class="panel"><h2>📥 Descargas LUCCA</h2><p class="notice">Guarda aquí enlaces que quieras consultar después. Este gestor organiza enlaces; por seguridad del navegador, no puede leer ni administrar los archivos descargados por Chrome.</p><div class="panel-row"><input id="downloadUrl" type="url" placeholder="https://ejemplo.com/archivo"><button class="go" id="saveDownload" type="button">Guardar enlace</button></div><div id="downloadList"></div><p class="notice">Para ver los archivos que realmente descargaste en Chrome, usa Ctrl + J.</p></div>`;
+  const list=document.getElementById("downloadList");
+  function render(){
+    list.replaceChildren();const items=getDownloads();
+    if(!items.length){const p=document.createElement("p");p.className="notice";p.textContent="Todavía no guardaste enlaces.";list.appendChild(p);return;}
+    items.forEach((item,index)=>{
+      const row=document.createElement("div");row.className="download-item";
+      const label=document.createElement("span");label.textContent=item;
+      const actions=document.createElement("div");actions.className="download-actions";
+      const open=document.createElement("button");open.className="small-button";open.type="button";open.textContent="Abrir en LUCCA";open.addEventListener("click",()=>navigate(item));
+      const remove=document.createElement("button");remove.className="small-button";remove.type="button";remove.textContent="Eliminar";remove.addEventListener("click",()=>{const next=getDownloads();next.splice(index,1);saveDownloads(next);render();});
+      actions.append(open,remove);row.append(label,actions);list.appendChild(row);
+    });
+  }
+  document.getElementById("saveDownload").addEventListener("click",()=>{
+    const field=document.getElementById("downloadUrl");let url;
+    try{url=new URL(field.value.trim());if(!["http:","https:"].includes(url.protocol))throw new Error();}
+    catch{showMessage("Enlace no válido","Escribe un enlace completo que comience con https:// o http://.");return;}
+    const items=getDownloads();if(!items.includes(url.href)){items.unshift(url.href);saveDownloads(items.slice(0,30));}
+    field.value="";render();
+  });
+  render();if(updateTab)setTabTitle("Descargas");
+}
+
+document.getElementById("addressForm").addEventListener("submit",event=>{event.preventDefault();navigate(input.value);});
+document.getElementById("backButton").addEventListener("click",goBack);
+document.getElementById("forwardButton").addEventListener("click",goForward);
+document.getElementById("refreshButton").addEventListener("click",refreshPage);
+document.getElementById("homeButton").addEventListener("click",showHome);
+document.getElementById("clearButton").addEventListener("click",clearHistory);
+document.getElementById("youtubeSectionButton").addEventListener("click",showYouTubePanel);
+document.getElementById("downloadsButton").addEventListener("click",showDownloads);
+document.querySelectorAll("[data-url]").forEach(button=>button.addEventListener("click",()=>navigate(button.dataset.url)));
+document.getElementById("logoHome").addEventListener("click",event=>{event.preventDefault();showHome();});
+document.getElementById("homeLink").addEventListener("click",event=>{event.preventDefault();showHome();});
+
 getHistory();
-
-fetch(`${PROXY_URL}/api/status`)
-  .then(response => response.json())
-  .then(data => console.log("LUCCA PROXY:", data))
-  .catch(error => console.error("Error conectando con LUCCA PROXY:", error));
+createTab(true);
+fetch(`${PROXY_URL}/api/status`).then(response=>response.json()).then(data=>console.log("LUCCA PROXY:",data)).catch(error=>console.error("Error conectando con LUCCA PROXY:",error));
 </script>
-
 </body>
 </html>
